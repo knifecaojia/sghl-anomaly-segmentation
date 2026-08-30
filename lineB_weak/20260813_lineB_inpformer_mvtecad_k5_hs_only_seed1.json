@@ -1,0 +1,518 @@
+{
+  "protocol": "EVAL_PROTOCOL.md v1 + DevNet/DRA k-shot: \u6bcf\u7c7b test \u5f02\u5e38\u56fe RandomState(1) \u5d4c\u5957\u62bd\u6837, shot \u56fe\u4ece\u8bc4\u4f30\u96c6\u5254\u9664; \u8bc4\u4f30\u53e3\u5f84 = \u8bad\u7ec3\u7ba1\u7ebf evaluation_batch_with_MaskDecoder (model.inf Eq.9, P-F1max \u7cbe\u786e sklearn PR \u5168\u50cf\u7d20 @256)",
+  "line": "B",
+  "k_shot": 5,
+  "arm": "hs_only",
+  "seed": 1,
+  "config": "dataset=MVTec-AD_Encoder=dinov2reg_vit_base_14_Resize=448_Crop=392_INP_num=6",
+  "script": "lineB_weak_finetune.py (2026-08-13, v2: +hs_only/hic_only \u5f52\u56e0\u81c2)",
+  "start_ckpt": "/data/repo/halo_ad/saved_results/halo15_dataset=MVTec-AD_Encoder=dinov2reg_vit_base_14_Resize=448_Crop=392_INP_num=6_halo/model_stage2.pth",
+  "finetune_schedule": {
+    "trainable": "seg_head only (freeze_stage1, \u4e0d\u91cd\u521d\u59cb\u5316, \u5404\u81c2\u540c\u8d77\u70b9)",
+    "lr": 0.0001,
+    "epochs": 10,
+    "batch_size": 16,
+    "optimizer": "StableAdamW + WarmCosine(final=0.1*lr), clip 0.1",
+    "loss": "Dice + HaloRefinerLoss(hs=1, hic=0, \u5176\u4f59\u540c halo)",
+    "normal_pairing": "\u6bcf\u7c7b train/good RandomState(1) \u524d k \u5f20 (\u7b49\u91cf\u914d\u5bf9)"
+  },
+  "sampling_manifest": "/data/repo/halo_ad/results/lineB/lineB_shot_sampling_seed1.json",
+  "shots_used": {
+    "carpet": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/carpet/test/thread/007.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/carpet/test/thread/017.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/carpet/test/thread/000.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/carpet/test/thread/001.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/carpet/test/cut/005.png"
+    ],
+    "grid": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/grid/test/glue/001.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/grid/test/broken/002.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/grid/test/bent/011.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/grid/test/thread/010.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/grid/test/thread/003.png"
+    ],
+    "leather": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/leather/test/cut/004.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/leather/test/cut/018.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/leather/test/glue/008.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/leather/test/cut/001.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/leather/test/poke/000.png"
+    ],
+    "tile": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/tile/test/oil/010.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/tile/test/glue_strip/016.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/tile/test/glue_strip/008.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/tile/test/crack/015.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/tile/test/rough/014.png"
+    ],
+    "wood": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/wood/test/scratch/000.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/wood/test/scratch/002.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/wood/test/hole/002.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/wood/test/scratch/009.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/wood/test/scratch/011.png"
+    ],
+    "bottle": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/bottle/test/contamination/004.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/bottle/test/contamination/019.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/bottle/test/broken_small/010.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/bottle/test/contamination/007.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/bottle/test/broken_small/020.png"
+    ],
+    "cable": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/cable/test/cable_swap/003.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/cable/test/combined/005.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/cable/test/missing_cable/000.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/cable/test/cable_swap/000.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/cable/test/combined/006.png"
+    ],
+    "capsule": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/capsule/test/scratch/014.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/capsule/test/scratch/004.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/capsule/test/scratch/006.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/capsule/test/scratch/003.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/capsule/test/scratch/015.png"
+    ],
+    "hazelnut": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/hazelnut/test/cut/012.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/hazelnut/test/crack/008.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/hazelnut/test/cut/013.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/hazelnut/test/cut/001.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/hazelnut/test/crack/009.png"
+    ],
+    "metal_nut": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/metal_nut/test/flip/012.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/metal_nut/test/scratch/004.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/metal_nut/test/bent/022.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/metal_nut/test/flip/009.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/metal_nut/test/scratch/018.png"
+    ],
+    "pill": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/pill/test/faulty_imprint/006.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/pill/test/combined/016.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/pill/test/color/010.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/pill/test/contamination/005.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/pill/test/scratch/008.png"
+    ],
+    "screw": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/screw/test/scratch_neck/000.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/screw/test/thread_top/007.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/screw/test/thread_top/012.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/screw/test/scratch_neck/022.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/screw/test/manipulated_front/004.png"
+    ],
+    "toothbrush": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/toothbrush/test/defective/017.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/toothbrush/test/defective/021.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/toothbrush/test/defective/010.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/toothbrush/test/defective/019.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/toothbrush/test/defective/014.png"
+    ],
+    "transistor": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/transistor/test/misplaced/002.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/transistor/test/bent_lead/001.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/transistor/test/misplaced/003.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/transistor/test/cut_lead/001.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/transistor/test/cut_lead/007.png"
+    ],
+    "zipper": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/zipper/test/split_teeth/010.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/zipper/test/fabric_border/003.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/zipper/test/fabric_border/008.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/zipper/test/rough/014.png",
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/zipper/test/combined/006.png"
+    ]
+  },
+  "categories": [
+    "carpet",
+    "grid",
+    "leather",
+    "tile",
+    "wood",
+    "bottle",
+    "cable",
+    "capsule",
+    "hazelnut",
+    "metal_nut",
+    "pill",
+    "screw",
+    "toothbrush",
+    "transistor",
+    "zipper"
+  ],
+  "n_categories": 15,
+  "per_category": {
+    "carpet": {
+      "I-AUROC": 0.9872448979591837,
+      "I-AP": 0.9966889647122205,
+      "I-F1_max": 0.987951757236176,
+      "P-AUROC": 0.9866914362141621,
+      "P-AP": 0.818796461870843,
+      "P-F1_max": 0.7877743436002306,
+      "AUPRO": 0.971177845307164,
+      "P-DICE": 0.11974427103996277,
+      "n_normal": 28,
+      "n_anomaly": 84,
+      "r_pos": 0.020746231079101562
+    },
+    "grid": {
+      "I-AUROC": 1.0,
+      "I-AP": 1.0,
+      "I-F1_max": 0.9999999500000026,
+      "P-AUROC": 0.9824051358271597,
+      "P-AP": 0.6309005615275669,
+      "P-F1_max": 0.617927568396565,
+      "AUPRO": 0.951016856341919,
+      "P-DICE": 0.012412190491737883,
+      "n_normal": 21,
+      "n_anomaly": 52,
+      "r_pos": 0.007873744180757706
+    },
+    "leather": {
+      "I-AUROC": 1.0,
+      "I-AP": 0.9999999999999999,
+      "I-F1_max": 0.9999999500000026,
+      "P-AUROC": 0.992963310062314,
+      "P-AP": 0.6935410620909817,
+      "P-F1_max": 0.6754357178301413,
+      "AUPRO": 0.9884128365306948,
+      "P-DICE": 0.006947089385773454,
+      "n_normal": 32,
+      "n_anomaly": 87,
+      "r_pos": 0.008178582712381827
+    },
+    "tile": {
+      "I-AUROC": 0.9996164173379364,
+      "I-AP": 0.9998417721518987,
+      "I-F1_max": 0.9937106418258796,
+      "P-AUROC": 0.97312669806701,
+      "P-AP": 0.8361754019305512,
+      "P-F1_max": 0.828505311171709,
+      "AUPRO": 0.897476872398557,
+      "P-DICE": 0.2541140071116388,
+      "n_normal": 33,
+      "n_anomaly": 79,
+      "r_pos": 0.08236830575125557
+    },
+    "wood": {
+      "I-AUROC": 0.9760765550239234,
+      "I-AP": 0.9917038155609839,
+      "I-F1_max": 0.9642856643016606,
+      "P-AUROC": 0.9604778813529343,
+      "P-AP": 0.7306868473552444,
+      "P-F1_max": 0.6887459586852057,
+      "AUPRO": 0.9358724427401276,
+      "P-DICE": 0.08380516245961189,
+      "n_normal": 19,
+      "n_anomaly": 55,
+      "r_pos": 0.04412285057274071
+    },
+    "bottle": {
+      "I-AUROC": 1.0,
+      "I-AP": 1.0000000000000002,
+      "I-F1_max": 0.9999999500000026,
+      "P-AUROC": 0.9829241338548181,
+      "P-AP": 0.878184682148428,
+      "P-F1_max": 0.8181626875455371,
+      "AUPRO": 0.9561956932215528,
+      "P-DICE": 0.07394187950662204,
+      "n_normal": 20,
+      "n_anomaly": 58,
+      "r_pos": 0.07685049986227965
+    },
+    "cable": {
+      "I-AUROC": 0.9324217201743956,
+      "I-AP": 0.961194398249655,
+      "I-F1_max": 0.8862274949980308,
+      "P-AUROC": 0.9632254351236598,
+      "P-AP": 0.6986924594286135,
+      "P-F1_max": 0.6913643102117873,
+      "AUPRO": 0.8946690281531144,
+      "P-DICE": 0.1656954139471054,
+      "n_normal": 58,
+      "n_anomaly": 87,
+      "r_pos": 0.03497125033674569
+    },
+    "capsule": {
+      "I-AUROC": 0.8315217391304348,
+      "I-AP": 0.9626585434919743,
+      "I-F1_max": 0.9004328509285835,
+      "P-AUROC": 0.9619699624227416,
+      "P-AP": 0.4936044735633815,
+      "P-F1_max": 0.5167424013404764,
+      "AUPRO": 0.9249555081410109,
+      "P-DICE": 0.01694132536649704,
+      "n_normal": 23,
+      "n_anomaly": 104,
+      "r_pos": 0.011869175227608268
+    },
+    "hazelnut": {
+      "I-AUROC": 1.0,
+      "I-AP": 1.0,
+      "I-F1_max": 0.9999999500000026,
+      "P-AUROC": 0.993333781898906,
+      "P-AP": 0.8360203690671024,
+      "P-F1_max": 0.8090403176556292,
+      "AUPRO": 0.9439778984090157,
+      "P-DICE": 0.024478346316350832,
+      "n_normal": 40,
+      "n_anomaly": 65,
+      "r_pos": 0.024061802455357145
+    },
+    "metal_nut": {
+      "I-AUROC": 0.9989669421487604,
+      "I-AP": 0.9997431864611384,
+      "I-F1_max": 0.9943502324874741,
+      "P-AUROC": 0.9518701545579452,
+      "P-AP": 0.8103863117491608,
+      "P-F1_max": 0.7791550347305619,
+      "AUPRO": 0.9238782865143463,
+      "P-DICE": 0.15252221641795977,
+      "n_normal": 22,
+      "n_anomaly": 88,
+      "r_pos": 0.14677026922052558
+    },
+    "pill": {
+      "I-AUROC": 0.9338235294117646,
+      "I-AP": 0.988841901238465,
+      "I-F1_max": 0.9541984233552849,
+      "P-AUROC": 0.9267613479543638,
+      "P-AP": 0.5917036266098522,
+      "P-F1_max": 0.5816310241731539,
+      "AUPRO": 0.9624756535151224,
+      "P-DICE": 0.040068959817290306,
+      "n_normal": 26,
+      "n_anomaly": 136,
+      "r_pos": 0.044219782323013115
+    },
+    "screw": {
+      "I-AUROC": 0.7492511767222936,
+      "I-AP": 0.9145424911931626,
+      "I-F1_max": 0.8475835942842167,
+      "P-AUROC": 0.9832626901990756,
+      "P-AP": 0.566273696671468,
+      "P-F1_max": 0.5682005656226703,
+      "AUPRO": 0.9502374848196925,
+      "P-DICE": 0.009247893298214132,
+      "n_normal": 41,
+      "n_anomaly": 114,
+      "r_pos": 0.003197848412298387
+    },
+    "toothbrush": {
+      "I-AUROC": 0.98,
+      "I-AP": 0.9897327976371457,
+      "I-F1_max": 0.980392106881971,
+      "P-AUROC": 0.9880905881228339,
+      "P-AP": 0.6424118103624468,
+      "P-F1_max": 0.6696516915000396,
+      "AUPRO": 0.9560053533707767,
+      "P-DICE": 0.061237503215670584,
+      "n_normal": 12,
+      "n_anomaly": 25,
+      "r_pos": 0.01783999881228885
+    },
+    "transistor": {
+      "I-AUROC": 0.9419047619047619,
+      "I-AP": 0.9226579446279425,
+      "I-F1_max": 0.8611110611496943,
+      "P-AUROC": 0.7832386265927282,
+      "P-AP": 0.4356124954565407,
+      "P-F1_max": 0.469558440323041,
+      "AUPRO": 0.6539791932320673,
+      "P-DICE": 0.04469971600919962,
+      "n_normal": 60,
+      "n_anomaly": 35,
+      "r_pos": 0.05461859452097039
+    },
+    "zipper": {
+      "I-AUROC": 0.9942434210526316,
+      "I-AP": 0.9985262196175035,
+      "I-F1_max": 0.986666616675558,
+      "P-AUROC": 0.9595020641475348,
+      "P-AP": 0.6861413034500313,
+      "P-F1_max": 0.6504798774324797,
+      "AUPRO": 0.907122722992987,
+      "P-DICE": 0.08670894056558609,
+      "n_normal": 32,
+      "n_anomaly": 114,
+      "r_pos": 0.0255547092385488
+    }
+  },
+  "macro": {
+    "I-AUROC": 0.955004744057739,
+    "I-AP": 0.981742135662806,
+    "I-F1_max": 0.9571273496083026,
+    "P-AUROC": 0.9593228830932125,
+    "P-AP": 0.6899421042188141,
+    "P-F1_max": 0.6768250166812818,
+    "AUPRO": 0.9211635783792099
+  },
+  "finetune_ckpt": "/data/repo/halo_ad/lineB_ckpts/k5_hs_only/model_stage2_ft.pth",
+  "elapsed_sec": 151.5,
+  "paired_diff": {
+    "vs": "base",
+    "convention": "hs_only - base",
+    "per_category": [
+      {
+        "cat": "carpet",
+        "d_I-AUROC": 0.012329931972789199,
+        "d_I-AP": 0.0033131456354668076,
+        "d_I-F1_max": 0.006133625401462783,
+        "d_P-AUROC": 0.0024834637355302114,
+        "d_P-AP": 0.032634536975725936,
+        "d_P-F1_max": 0.012092904215144085,
+        "d_AUPRO": 0.003978613569184941
+      },
+      {
+        "cat": "grid",
+        "d_I-AUROC": 0.001831501831501825,
+        "d_I-AP": 0.0007122507122506727,
+        "d_I-F1_max": 0.00970873785936488,
+        "d_P-AUROC": -0.0014545118218379782,
+        "d_P-AP": -0.009544986125897936,
+        "d_P-F1_max": -0.025126043454523295,
+        "d_AUPRO": -0.0033026644912818037
+      },
+      {
+        "cat": "leather",
+        "d_I-AUROC": 0.0,
+        "d_I-AP": 0.0,
+        "d_I-F1_max": 0.0,
+        "d_P-AUROC": 0.0003690423261105691,
+        "d_P-AP": 0.05098363822135543,
+        "d_P-F1_max": 0.02171927303958454,
+        "d_AUPRO": -0.00031889918524907745
+      },
+      {
+        "cat": "tile",
+        "d_I-AUROC": -0.00038358266206361957,
+        "d_I-AP": -0.00015822784810126667,
+        "d_I-F1_max": -0.006289308174122987,
+        "d_P-AUROC": 0.00618673160461225,
+        "d_P-AP": 0.031842418480966694,
+        "d_P-F1_max": 0.012040676520863824,
+        "d_AUPRO": 0.007281890893932608
+      },
+      {
+        "cat": "wood",
+        "d_I-AUROC": -0.010526315789473606,
+        "d_I-AP": -0.003678843024521261,
+        "d_I-F1_max": -0.009165613167211872,
+        "d_P-AUROC": 0.00026156006868638393,
+        "d_P-AP": 0.01480140063476143,
+        "d_P-F1_max": -0.016349930461815987,
+        "d_AUPRO": -0.0027501339841105032
+      },
+      {
+        "cat": "bottle",
+        "d_I-AUROC": 0.0,
+        "d_I-AP": 0.0,
+        "d_I-F1_max": 0.0,
+        "d_P-AUROC": 0.0040224683503624625,
+        "d_P-AP": 0.016161569070388793,
+        "d_P-F1_max": -0.004075325549602993,
+        "d_AUPRO": 0.006184044996035976
+      },
+      {
+        "cat": "cable",
+        "d_I-AUROC": -0.016052318668251964,
+        "d_I-AP": -0.010534947528424543,
+        "d_I-F1_max": -0.021747915352380298,
+        "d_P-AUROC": 0.006547661536533966,
+        "d_P-AP": 0.005791944237457658,
+        "d_P-F1_max": -0.022909970774709243,
+        "d_AUPRO": 0.004438491032377256
+      },
+      {
+        "cat": "capsule",
+        "d_I-AUROC": -0.01546822742474907,
+        "d_I-AP": -0.004385606872367331,
+        "d_I-F1_max": 0.0,
+        "d_P-AUROC": 0.006362715503559158,
+        "d_P-AP": -0.007168884627826111,
+        "d_P-F1_max": -0.017006285006840205,
+        "d_AUPRO": 0.0016240439077308544
+      },
+      {
+        "cat": "hazelnut",
+        "d_I-AUROC": 0.0,
+        "d_I-AP": 0.0,
+        "d_I-F1_max": 0.0,
+        "d_P-AUROC": 0.0015278130777529597,
+        "d_P-AP": 0.024461279183854545,
+        "d_P-F1_max": 0.00968447889518731,
+        "d_AUPRO": 0.009117626462914474
+      },
+      {
+        "cat": "metal_nut",
+        "d_I-AUROC": -0.0010330578512396382,
+        "d_I-AP": -0.0002568135388616444,
+        "d_I-F1_max": -0.005649717512528518,
+        "d_P-AUROC": 0.051448949172254066,
+        "d_P-AP": 0.13430614458440793,
+        "d_P-F1_max": 0.14694258083986955,
+        "d_AUPRO": 0.037442271412135075
+      },
+      {
+        "cat": "pill",
+        "d_I-AUROC": -0.0076357466063349255,
+        "d_I-AP": -0.001212169515130368,
+        "d_I-F1_max": 0.004006902385243594,
+        "d_P-AUROC": 0.007989585092643803,
+        "d_P-AP": 0.06682745360121578,
+        "d_P-F1_max": 0.07142164200905676,
+        "d_AUPRO": 0.004507469951174459
+      },
+      {
+        "cat": "screw",
+        "d_I-AUROC": 0.02652973898160038,
+        "d_I-AP": 0.010844509288256754,
+        "d_I-F1_max": 0.0,
+        "d_P-AUROC": 0.0012413136968472127,
+        "d_P-AP": -0.0007512765533910226,
+        "d_P-F1_max": -0.015451745593501598,
+        "d_AUPRO": 0.002909799848739847
+      },
+      {
+        "cat": "toothbrush",
+        "d_I-AUROC": -0.016666666666666607,
+        "d_I-AP": -0.0087287408243929,
+        "d_I-F1_max": 0.0,
+        "d_P-AUROC": -0.001153762862114105,
+        "d_P-AP": 0.006294864363160624,
+        "d_P-F1_max": -0.032918739961729004,
+        "d_AUPRO": -0.006111585452205692
+      },
+      {
+        "cat": "transistor",
+        "d_I-AUROC": -0.030476190476190546,
+        "d_I-AP": -0.0273625416832749,
+        "d_I-F1_max": -0.04299847797584799,
+        "d_P-AUROC": 0.03262229299618791,
+        "d_P-AP": 0.051077563750288546,
+        "d_P-F1_max": 0.03475583582944897,
+        "d_AUPRO": 0.03368436762146465
+      },
+      {
+        "cat": "zipper",
+        "d_I-AUROC": 0.005482456140350922,
+        "d_I-AP": 0.0014699437627658796,
+        "d_I-F1_max": 0.013215339238011437,
+        "d_P-AUROC": 0.004979852894369752,
+        "d_P-AP": 0.039534432719847024,
+        "d_P-F1_max": 0.03334163731743489,
+        "d_AUPRO": 0.009022008914865709
+      }
+    ],
+    "macro": {
+      "d_I-AUROC": -0.0034712318145818434,
+      "d_I-AP": -0.0026652027624222735,
+      "d_I-F1_max": -0.0035190951532005983,
+      "d_P-AUROC": 0.008229011691433242,
+      "d_P-AP": 0.03048347323442102,
+      "d_P-F1_max": 0.013877399190924507,
+      "d_AUPRO": 0.007180489699847251
+    }
+  }
+}

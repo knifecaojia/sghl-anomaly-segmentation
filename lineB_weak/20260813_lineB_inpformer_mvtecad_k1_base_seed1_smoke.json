@@ -1,0 +1,55 @@
+{
+  "protocol": "EVAL_PROTOCOL.md v1 + DevNet/DRA k-shot: \u6bcf\u7c7b test \u5f02\u5e38\u56fe RandomState(1) \u5d4c\u5957\u62bd\u6837, shot \u56fe\u4ece\u8bc4\u4f30\u96c6\u5254\u9664; \u8bc4\u4f30\u53e3\u5f84 = \u8bad\u7ec3\u7ba1\u7ebf evaluation_batch_with_MaskDecoder (model.inf Eq.9, P-F1max \u7cbe\u786e sklearn PR \u5168\u50cf\u7d20 @256)",
+  "line": "B",
+  "k_shot": 1,
+  "arm": "base",
+  "seed": 1,
+  "config": "dataset=MVTec-AD_Encoder=dinov2reg_vit_base_14_Resize=448_Crop=392_INP_num=6",
+  "script": "lineB_weak_finetune.py (2026-08-13)",
+  "start_ckpt": "/data/repo/halo_ad/saved_results/halo15_dataset=MVTec-AD_Encoder=dinov2reg_vit_base_14_Resize=448_Crop=392_INP_num=6_halo/model_stage2.pth",
+  "finetune_schedule": {
+    "trainable": "seg_head only (freeze_stage1, \u4e0d\u91cd\u521d\u59cb\u5316, \u53cc\u81c2\u540c\u8d77\u70b9)",
+    "lr": 0.0001,
+    "epochs": 2,
+    "batch_size": 16,
+    "optimizer": "StableAdamW + WarmCosine(final=0.1*lr), clip 0.1",
+    "loss": "segmentation_loss (Dice)",
+    "normal_pairing": "\u6bcf\u7c7b train/good RandomState(1) \u524d k \u5f20 (\u7b49\u91cf\u914d\u5bf9)"
+  },
+  "sampling_manifest": "/data/repo/halo_ad/results/lineB/lineB_shot_sampling_seed1.json",
+  "shots_used": {
+    "bottle": [
+      "/data/repo/AD-DINOv3/Data/Industrial_Datasets/MVTechAD/bottle/test/contamination/004.png"
+    ]
+  },
+  "categories": [
+    "bottle"
+  ],
+  "n_categories": 1,
+  "per_category": {
+    "bottle": {
+      "I-AUROC": 1.0,
+      "I-AP": 1.0,
+      "I-F1_max": 0.9999999500000026,
+      "P-AUROC": 0.9777926408805149,
+      "P-AP": 0.8270602304835322,
+      "P-F1_max": 0.7650509614083042,
+      "AUPRO": 0.9327700817099274,
+      "P-DICE": 0.06842361018061638,
+      "n_normal": 20,
+      "n_anomaly": 62,
+      "r_pos": 0.07574816447932546
+    }
+  },
+  "macro": {
+    "I-AUROC": 1.0,
+    "I-AP": 1.0,
+    "I-F1_max": 0.9999999500000026,
+    "P-AUROC": 0.9777926408805149,
+    "P-AP": 0.8270602304835322,
+    "P-F1_max": 0.7650509614083042,
+    "AUPRO": 0.9327700817099274
+  },
+  "finetune_ckpt": "/data/repo/halo_ad/lineB_ckpts/k1_base/model_stage2_ft.pth",
+  "elapsed_sec": 10.8
+}

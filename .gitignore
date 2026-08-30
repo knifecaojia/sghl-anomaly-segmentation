@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pth
+*.log
+checkpoints/
+logs/
+weights/
+realiad_448_staging/
+realiad_jsons/
+energy_samples/
+paper/

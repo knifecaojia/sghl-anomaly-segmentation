@@ -1,0 +1,189 @@
+{
+  "script_version": "ba96f6a0f7f5",
+  "pipeline": "lineC_frozendino",
+  "train_sets": [
+    "mvtec",
+    "realiad"
+  ],
+  "test_set": "visa",
+  "arm": "hic_m05",
+  "seed": 1,
+  "epochs": 5,
+  "ckpt_epoch": 4,
+  "ckpt": "D:\\tianchi-rongqi\\paper\\halo_ad\\lineC_sup\\checkpoints\\mvtec+realiad_to_visa_hic_m05_seed1\\last.pth",
+  "n_categories": 12,
+  "subset": false,
+  "eval_protocol": "EVAL_PROTOCOL.md v1: F1max exact-sort (bins4096 if >1.5e8 px), AUPRO FPR<=0.3, bootstrap B=10000",
+  "macro": {
+    "p_f1max": {
+      "mean": 0.285900983464413,
+      "ci95": [
+        0.19666632724196395,
+        0.3943738143113691
+      ]
+    },
+    "p_auroc": {
+      "mean": 0.8703766032710489,
+      "ci95": [
+        0.8014419959698518,
+        0.9272004911970353
+      ]
+    },
+    "p_ap": {
+      "mean": 0.21831872064048766,
+      "ci95": [
+        0.12331805370838105,
+        0.3358037978002294
+      ]
+    },
+    "i_auroc": {
+      "mean": 0.7959573844884488,
+      "ci95": [
+        0.728770807549505,
+        0.8543638015676568
+      ]
+    },
+    "aupro": {
+      "mean": 0.41943507329147983,
+      "ci95": [
+        0.36072709571072487,
+        0.4803375192842629
+      ]
+    }
+  },
+  "per_category": {
+    "candle": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.001758609693877551,
+      "p_f1max": 0.33977842924119156,
+      "p_auroc": 0.9578522090211327,
+      "p_ap": 0.27962934115748767,
+      "i_auroc": 0.76515,
+      "aupro": 0.30600039088766223,
+      "f1_method": "exact_sort"
+    },
+    "capsules": {
+      "n_normal": 60,
+      "n_anomaly": 100,
+      "r_pos": 0.00433636863546439,
+      "p_f1max": 0.18146522488247172,
+      "p_auroc": 0.6917165671707781,
+      "p_ap": 0.10908595294767567,
+      "i_auroc": 0.80275,
+      "aupro": 0.2745958938277741,
+      "f1_method": "exact_sort"
+    },
+    "cashew": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.014700298486741635,
+      "p_f1max": 0.10283036369931933,
+      "p_auroc": 0.8436172810774141,
+      "p_ap": 0.09162043371411979,
+      "i_auroc": 0.8050999999999999,
+      "aupro": 0.5603071666396187,
+      "f1_method": "exact_sort"
+    },
+    "chewinggum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.007381863459669582,
+      "p_f1max": 0.6733280960101626,
+      "p_auroc": 0.9525741840303258,
+      "p_ap": 0.6286896464710039,
+      "i_auroc": 0.9178,
+      "aupro": 0.33242274522252524,
+      "f1_method": "exact_sort"
+    },
+    "fryum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.03010108635290851,
+      "p_f1max": 0.2696698400880956,
+      "p_auroc": 0.9097458112550529,
+      "p_ap": 0.2087419804647336,
+      "i_auroc": 0.8355,
+      "aupro": 0.6102456637201865,
+      "f1_method": "exact_sort"
+    },
+    "macaroni1": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.0004721665451895044,
+      "p_f1max": 0.3050197875442616,
+      "p_auroc": 0.9356486288587387,
+      "p_ap": 0.16660844059517207,
+      "i_auroc": 0.7647,
+      "aupro": 0.513549346816321,
+      "f1_method": "exact_sort"
+    },
+    "macaroni2": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.00038031028738025823,
+      "p_f1max": 0.2025302028721222,
+      "p_auroc": 0.9523839981398488,
+      "p_ap": 0.04736825603626768,
+      "i_auroc": 0.5023,
+      "aupro": 0.4959236919920151,
+      "f1_method": "exact_sort"
+    },
+    "pcb1": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.006082817055393586,
+      "p_f1max": 0.13953621405944983,
+      "p_auroc": 0.5957810925400029,
+      "p_ap": 0.08626049277389103,
+      "i_auroc": 0.8281,
+      "aupro": 0.36650767328124256,
+      "f1_method": "exact_sort"
+    },
+    "pcb2": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.0026974437734277384,
+      "p_f1max": 0.22116065385004396,
+      "p_auroc": 0.8916742065105945,
+      "p_ap": 0.14070573251554955,
+      "i_auroc": 0.7803500000000001,
+      "aupro": 0.3623919785520408,
+      "f1_method": "exact_sort"
+    },
+    "pcb3": {
+      "n_normal": 101,
+      "n_anomaly": 100,
+      "r_pos": 0.0032970753790398277,
+      "p_f1max": 0.157090309759772,
+      "p_auroc": 0.8238910821642413,
+      "p_ap": 0.08018533658778709,
+      "i_auroc": 0.7076732673267327,
+      "aupro": 0.30621466682101656,
+      "f1_method": "exact_sort"
+    },
+    "pcb4": {
+      "n_normal": 101,
+      "n_anomaly": 100,
+      "r_pos": 0.008591854347587344,
+      "p_f1max": 0.2099389051176658,
+      "p_auroc": 0.9094896954669668,
+      "p_ap": 0.17428070465806159,
+      "i_auroc": 0.8684653465346535,
+      "aupro": 0.42391586482082944,
+      "f1_method": "exact_sort"
+    },
+    "pipe_fryum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.016312734277384423,
+      "p_f1max": 0.6284637744483993,
+      "p_auroc": 0.9801444830174919,
+      "p_ap": 0.6066483297641023,
+      "i_auroc": 0.9736,
+      "aupro": 0.4811457969165263,
+      "f1_method": "exact_sort"
+    }
+  },
+  "note": "A5 sensitivity variant of hic: margin=0.5 (其余与 hic 完全一致; OFAT 自基线 m=0.3/r=5)."
+}

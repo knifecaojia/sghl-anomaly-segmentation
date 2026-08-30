@@ -1,0 +1,190 @@
+{
+  "script_version": "c5ee133ca1fc",
+  "pipeline": "lineC_remote_frozendino_singlesource",
+  "deployment": "remote remote-host:/data/repo/halo_ad/lineC_sup",
+  "protocol_note": "单源 LODO: 训练池 = 源数据集全部 train 正常图 + 源数据集 test split 带像素 GT 的异常图 (与本地 RealIADAdapter 同约定); 评测 = 目标数据集完整官方 test split, 无泄漏. VisA 用原始版 split_csv/1cls.csv, split 定义以 csv 为准.",
+  "train_sets": [
+    "mvtec"
+  ],
+  "test_set": "visa",
+  "arm": "sghl",
+  "seed": 3,
+  "epochs": 15,
+  "wide": true,
+  "ckpt_epoch": 14,
+  "ckpt": "/data/repo/halo_ad/lineC_sup/checkpoints/mvtec_to_visa_sghl_wide_ep15_seed3/last.pth",
+  "n_categories": 12,
+  "subset": false,
+  "eval_protocol": "EVAL_PROTOCOL.md v1: F1max exact-sort (bins4096 if >1.5e8 px), AUPRO FPR<=0.3, bootstrap B=10000",
+  "macro": {
+    "p_f1max": {
+      "mean": 0.13505686888885984,
+      "ci95": [
+        0.08781143250820117,
+        0.19052095538273306
+      ]
+    },
+    "p_auroc": {
+      "mean": 0.5910136745227422,
+      "ci95": [
+        0.5133020565404056,
+        0.6587817100520572
+      ]
+    },
+    "p_ap": {
+      "mean": 0.06999467215077675,
+      "ci95": [
+        0.039276892901301666,
+        0.10703613459918813
+      ]
+    },
+    "i_auroc": {
+      "mean": 0.6265353135313532,
+      "ci95": [
+        0.5635682920792079,
+        0.6868602227722773
+      ]
+    },
+    "aupro": {
+      "mean": 0.10486286348171003,
+      "ci95": [
+        0.07949390799002153,
+        0.13179241883297568
+      ]
+    }
+  },
+  "per_category": {
+    "candle": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.001758609693877551,
+      "p_f1max": 0.13846447338755832,
+      "p_auroc": 0.6763318062101711,
+      "p_ap": 0.0652544268012353,
+      "i_auroc": 0.6916500000000001,
+      "aupro": 0.10088854508126165,
+      "f1_method": "exact_sort"
+    },
+    "capsules": {
+      "n_normal": 60,
+      "n_anomaly": 100,
+      "r_pos": 0.00433636863546439,
+      "p_f1max": 0.35293099768704106,
+      "p_auroc": 0.5974596573169754,
+      "p_ap": 0.21388981926162307,
+      "i_auroc": 0.75575,
+      "aupro": 0.07723297248287171,
+      "f1_method": "exact_sort"
+    },
+    "cashew": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.014700298486741635,
+      "p_f1max": 0.15439056294203538,
+      "p_auroc": 0.6530466555930917,
+      "p_ap": 0.08812343747267468,
+      "i_auroc": 0.6547999999999999,
+      "aupro": 0.14526275201165947,
+      "f1_method": "exact_sort"
+    },
+    "chewinggum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.007381863459669582,
+      "p_f1max": 0.040291249905520146,
+      "p_auroc": 0.2575151568888669,
+      "p_ap": 0.024785287706492614,
+      "i_auroc": 0.5648,
+      "aupro": 0.03770207410109419,
+      "f1_method": "exact_sort"
+    },
+    "fryum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.03010108635290851,
+      "p_f1max": 0.25830977475603734,
+      "p_auroc": 0.6962638008061456,
+      "p_ap": 0.16672400993123243,
+      "i_auroc": 0.4834,
+      "aupro": 0.17866276430062725,
+      "f1_method": "exact_sort"
+    },
+    "macaroni1": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.0004721665451895044,
+      "p_f1max": 0.06320645905420991,
+      "p_auroc": 0.5854010542587861,
+      "p_ap": 0.029012948066443302,
+      "i_auroc": 0.6007499999999999,
+      "aupro": 0.13563574179581,
+      "f1_method": "exact_sort"
+    },
+    "macaroni2": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.00038031028738025823,
+      "p_f1max": 0.048019108804876046,
+      "p_auroc": 0.7559237665035137,
+      "p_ap": 0.01285161628875269,
+      "i_auroc": 0.5286,
+      "aupro": 0.19221173864388524,
+      "f1_method": "exact_sort"
+    },
+    "pcb1": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.006082817055393586,
+      "p_f1max": 0.12784780385133243,
+      "p_auroc": 0.5436067784833452,
+      "p_ap": 0.04386405605572635,
+      "i_auroc": 0.7900499999999999,
+      "aupro": 0.070705479737055,
+      "f1_method": "exact_sort"
+    },
+    "pcb2": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.0026974437734277384,
+      "p_f1max": 0.09087122339130671,
+      "p_auroc": 0.5593879873545695,
+      "p_ap": 0.04620212105224096,
+      "i_auroc": 0.728,
+      "aupro": 0.11468803534668455,
+      "f1_method": "exact_sort"
+    },
+    "pcb3": {
+      "n_normal": 101,
+      "n_anomaly": 100,
+      "r_pos": 0.0032970753790398277,
+      "p_f1max": 0.05104269746952623,
+      "p_auroc": 0.570115927733653,
+      "p_ap": 0.012226409656005523,
+      "i_auroc": 0.4073762376237624,
+      "aupro": 0.05803926441593693,
+      "f1_method": "exact_sort"
+    },
+    "pcb4": {
+      "n_normal": 101,
+      "n_anomaly": 100,
+      "r_pos": 0.008591854347587344,
+      "p_f1max": 0.10046614611607198,
+      "p_auroc": 0.45517048509981756,
+      "p_ap": 0.04373478304753048,
+      "i_auroc": 0.6902475247524753,
+      "aupro": 0.06563375371106278,
+      "f1_method": "exact_sort"
+    },
+    "pipe_fryum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.016312734277384423,
+      "p_f1max": 0.1948419293008025,
+      "p_auroc": 0.7419410180239706,
+      "p_ap": 0.09326715046936365,
+      "i_auroc": 0.623,
+      "aupro": 0.0816912401525719,
+      "f1_method": "exact_sort"
+    }
+  }
+}

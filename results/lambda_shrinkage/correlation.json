@@ -1,0 +1,356 @@
+{
+  "combined": {
+    "branch": "combined",
+    "n_cats": 15,
+    "macro_lambda_baseline": 499.9999999999996,
+    "macro_lambda_halo": 497.944964673555,
+    "per_cat": [
+      {
+        "cat": "bottle",
+        "lambda_baseline": 499.99997991897067,
+        "lambda_halo": 379.8359958324218,
+        "d_lambda": -120.16398408654885,
+        "dPF1": 0.05572397318294953,
+        "R2_baseline": 0.9996152350542643,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9993496881717628,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "cable",
+        "lambda_baseline": 499.9999999978447,
+        "lambda_halo": 499.99999999998704,
+        "d_lambda": 2.1423147700261325e-09,
+        "dPF1": 0.21145886164882532,
+        "R2_baseline": 0.9931988653709832,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9991447155339415,
+        "at_bound_halo": true
+      },
+      {
+        "cat": "capsule",
+        "lambda_baseline": 221.10594727893493,
+        "lambda_halo": 77.3953801229843,
+        "d_lambda": -143.71056715595063,
+        "dPF1": 0.11477983999389174,
+        "R2_baseline": 0.9995099598701195,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9991785109503035,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "carpet",
+        "lambda_baseline": 499.999999999699,
+        "lambda_halo": 475.8774924474585,
+        "d_lambda": -24.122507552240506,
+        "dPF1": 0.10287879776150755,
+        "R2_baseline": 0.9970332919876703,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9993005588205931,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "grid",
+        "lambda_baseline": 499.8207756061766,
+        "lambda_halo": 440.0417144701891,
+        "d_lambda": -59.77906113598749,
+        "dPF1": -0.0188899084081825,
+        "R2_baseline": 0.9988380320489719,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9985718814087963,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "hazelnut",
+        "lambda_baseline": 499.99999999946766,
+        "lambda_halo": 345.0735201948723,
+        "d_lambda": -154.92647980459537,
+        "dPF1": 0.19731201869062676,
+        "R2_baseline": 0.9953943700420219,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9988830384777381,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "leather",
+        "lambda_baseline": 499.9999999996403,
+        "lambda_halo": 499.9999999999343,
+        "d_lambda": 2.9399416234809905e-10,
+        "dPF1": 0.060622513208185236,
+        "R2_baseline": 0.9891457907441233,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9985580933870783,
+        "at_bound_halo": true
+      },
+      {
+        "cat": "metal_nut",
+        "lambda_baseline": 499.9971552070874,
+        "lambda_halo": 499.9999999861348,
+        "d_lambda": 0.002844779047393331,
+        "dPF1": 0.08952736864083699,
+        "R2_baseline": 0.9581207736955489,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9889836798371301,
+        "at_bound_halo": true
+      },
+      {
+        "cat": "pill",
+        "lambda_baseline": 499.9997661730258,
+        "lambda_halo": 169.5371659908001,
+        "d_lambda": -330.46260018222574,
+        "dPF1": 0.09004330443499503,
+        "R2_baseline": 0.9982803963401844,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9991441744865004,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "screw",
+        "lambda_baseline": 499.99988332368076,
+        "lambda_halo": 112.64189745819499,
+        "d_lambda": -387.3579858654858,
+        "dPF1": 0.08334673853593594,
+        "R2_baseline": 0.9987275754975251,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9997272959808013,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "tile",
+        "lambda_baseline": 499.99999999397534,
+        "lambda_halo": 317.155866083107,
+        "d_lambda": -182.84413391086832,
+        "dPF1": 0.09581923454643204,
+        "R2_baseline": 0.9864241789843448,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9887167491899711,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "toothbrush",
+        "lambda_baseline": 499.99998484003453,
+        "lambda_halo": 499.9999999999988,
+        "d_lambda": 1.5159964277700055e-05,
+        "dPF1": 0.12300991986542065,
+        "R2_baseline": 0.9991714138042314,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9981033139469826,
+        "at_bound_halo": true
+      },
+      {
+        "cat": "transistor",
+        "lambda_baseline": 499.9895005675071,
+        "lambda_halo": 499.9973850321375,
+        "d_lambda": 0.007884464630421917,
+        "dPF1": 0.2723532877709684,
+        "R2_baseline": 0.9983823616454485,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9979319562278253,
+        "at_bound_halo": true
+      },
+      {
+        "cat": "wood",
+        "lambda_baseline": 499.9999999999707,
+        "lambda_halo": 470.66847474588553,
+        "d_lambda": -29.331525254085193,
+        "dPF1": 0.06426110616410086,
+        "R2_baseline": 0.9978936866518309,
+        "at_bound_baseline": true,
+        "R2_halo": 0.9990592319597015,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "zipper",
+        "lambda_baseline": 292.3834338735425,
+        "lambda_halo": 82.48713292167474,
+        "d_lambda": -209.89630095186777,
+        "dPF1": 0.07935217550689622,
+        "R2_baseline": 0.999917232806762,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9999458441296878,
+        "at_bound_halo": false
+      }
+    ],
+    "pearson_r": 0.19419758885352345,
+    "pearson_p": 0.4879822347832733,
+    "spearman_r": 0.2928571428571428,
+    "spearman_p": 0.289471667212401
+  },
+  "seghead": {
+    "branch": "seghead",
+    "n_cats": 15,
+    "macro_lambda_baseline": 0.1169768598255187,
+    "macro_lambda_halo": 51.44690268996301,
+    "per_cat": [
+      {
+        "cat": "bottle",
+        "lambda_baseline": 7.118148990149312,
+        "lambda_halo": 52.559893625018354,
+        "d_lambda": 45.44174463486904,
+        "dPF1": 0.05572397318294953,
+        "R2_baseline": -9.788105609243969e+29,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9854007775578192,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "cable",
+        "lambda_baseline": 7.11861820305772,
+        "lambda_halo": 51.2720875706154,
+        "d_lambda": 44.153469367557676,
+        "dPF1": 0.21145886164882532,
+        "R2_baseline": -4.98092134905551e+32,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9882889848173618,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "capsule",
+        "lambda_baseline": 7.117949588481627,
+        "lambda_halo": 35.85164184075603,
+        "d_lambda": 28.733692252274402,
+        "dPF1": 0.11477983999389174,
+        "R2_baseline": -3.634035389154961e+30,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9975536970395221,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "carpet",
+        "lambda_baseline": 7.118499092304743,
+        "lambda_halo": 70.09652414855354,
+        "d_lambda": 62.978025056248796,
+        "dPF1": 0.10287879776150755,
+        "R2_baseline": -5.820632347463659e+30,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9944146260004627,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "grid",
+        "lambda_baseline": 7.118324732463183,
+        "lambda_halo": 77.13678847480297,
+        "d_lambda": 70.01846374233979,
+        "dPF1": -0.0188899084081825,
+        "R2_baseline": -7.495292615406849e+29,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9882858984462096,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "hazelnut",
+        "lambda_baseline": 7.118532768989239,
+        "lambda_halo": 42.64813359507278,
+        "d_lambda": 35.52960082608354,
+        "dPF1": 0.19731201869062676,
+        "R2_baseline": -5.838577774392299e+31,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9848315420892214,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "leather",
+        "lambda_baseline": 7.118414159003374,
+        "lambda_halo": 111.49132000895547,
+        "d_lambda": 104.37290584995209,
+        "dPF1": 0.060622513208185236,
+        "R2_baseline": -4.5132269581534647e+30,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9989890546615816,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "metal_nut",
+        "lambda_baseline": 7.118420297177058,
+        "lambda_halo": 43.658435566685306,
+        "d_lambda": 36.540015269508245,
+        "dPF1": 0.08952736864083699,
+        "R2_baseline": -2.868895558283397e+27,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9720197938302073,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "pill",
+        "lambda_baseline": 7.118262271661485,
+        "lambda_halo": 26.535148451357454,
+        "d_lambda": 19.416886179695968,
+        "dPF1": 0.09004330443499503,
+        "R2_baseline": -1.759907976654908e+28,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9796493764327985,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "screw",
+        "lambda_baseline": 7.11799461571472,
+        "lambda_halo": 32.675139936707396,
+        "d_lambda": 25.557145320992674,
+        "dPF1": 0.08334673853593594,
+        "R2_baseline": -4.3842869108694246e+29,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9992895294058367,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "tile",
+        "lambda_baseline": 7.1183793658591,
+        "lambda_halo": 55.54043845824869,
+        "d_lambda": 48.42205909238959,
+        "dPF1": 0.09581923454643204,
+        "R2_baseline": -1.639311301376845e+29,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9672311554096719,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "toothbrush",
+        "lambda_baseline": 7.118305472282866,
+        "lambda_halo": 60.52593344889502,
+        "d_lambda": 53.407627976612154,
+        "dPF1": 0.12300991986542065,
+        "R2_baseline": -1.0575428899976203e+31,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9875411256587787,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "transistor",
+        "lambda_baseline": 7.117894647343903,
+        "lambda_halo": 64.10103998828596,
+        "d_lambda": 56.98314534094206,
+        "dPF1": 0.2723532877709684,
+        "R2_baseline": -2.852139074897479e+29,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9873894961914718,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "wood",
+        "lambda_baseline": 7.11849187961937,
+        "lambda_halo": 61.68077091043355,
+        "d_lambda": 54.56227903081418,
+        "dPF1": 0.06426110616410086,
+        "R2_baseline": -1.3479899229380237e+28,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9922650584791655,
+        "at_bound_halo": false
+      },
+      {
+        "cat": "zipper",
+        "lambda_baseline": 7.118526724366059,
+        "lambda_halo": 49.39857368057823,
+        "d_lambda": 42.280046956212175,
+        "dPF1": 0.07935217550689622,
+        "R2_baseline": -1.866970604092926e+29,
+        "at_bound_baseline": false,
+        "R2_halo": 0.9996313952687179,
+        "at_bound_halo": false
+      }
+    ],
+    "pearson_r": -0.20892521251898644,
+    "pearson_p": 0.4548992918087524,
+    "spearman_r": -0.22142857142857136,
+    "spearman_p": 0.42771371901637
+  }
+}

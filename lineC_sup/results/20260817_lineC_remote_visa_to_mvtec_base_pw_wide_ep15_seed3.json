@@ -1,0 +1,224 @@
+{
+  "script_version": "c5ee133ca1fc",
+  "pipeline": "lineC_remote_frozendino_singlesource",
+  "deployment": "remote remote-host:/data/repo/halo_ad/lineC_sup",
+  "protocol_note": "单源 LODO: 训练池 = 源数据集全部 train 正常图 + 源数据集 test split 带像素 GT 的异常图 (与本地 RealIADAdapter 同约定); 评测 = 目标数据集完整官方 test split, 无泄漏. VisA 用原始版 split_csv/1cls.csv, split 定义以 csv 为准.",
+  "train_sets": [
+    "visa"
+  ],
+  "test_set": "mvtec",
+  "arm": "base_pw",
+  "seed": 3,
+  "epochs": 15,
+  "wide": true,
+  "ckpt_epoch": 14,
+  "ckpt": "/data/repo/halo_ad/lineC_sup/checkpoints/visa_to_mvtec_base_pw_wide_ep15_seed3/last.pth",
+  "n_categories": 15,
+  "subset": false,
+  "eval_protocol": "EVAL_PROTOCOL.md v1: F1max exact-sort (bins4096 if >1.5e8 px), AUPRO FPR<=0.3, bootstrap B=10000",
+  "macro": {
+    "p_f1max": {
+      "mean": 0.10083378477082575,
+      "ci95": [
+        0.06424791777773803,
+        0.14091594340841992
+      ]
+    },
+    "p_auroc": {
+      "mean": 0.4919778202985467,
+      "ci95": [
+        0.4395918498823719,
+        0.549296434743554
+      ]
+    },
+    "p_ap": {
+      "mean": 0.05329269029028454,
+      "ci95": [
+        0.031244763310489667,
+        0.07803849068855213
+      ]
+    },
+    "i_auroc": {
+      "mean": 0.49798461853163045,
+      "ci95": [
+        0.4448733985305972,
+        0.544288572536881
+      ]
+    },
+    "aupro": {
+      "mean": 0.04690491293849779,
+      "ci95": [
+        0.01926162690632678,
+        0.07887558827817048
+      ]
+    }
+  },
+  "per_category": {
+    "bottle": {
+      "n_normal": 20,
+      "n_anomaly": 63,
+      "r_pos": 0.07511859704540778,
+      "p_f1max": 0.14738714333186467,
+      "p_auroc": 0.4674737725709218,
+      "p_ap": 0.08161339262931447,
+      "i_auroc": 0.6825396825396826,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "cable": {
+      "n_normal": 58,
+      "n_anomaly": 92,
+      "r_pos": 0.037455704220463695,
+      "p_f1max": 0.07593018443070544,
+      "p_auroc": 0.4503603229227734,
+      "p_ap": 0.03180052095983923,
+      "i_auroc": 0.39523988005996996,
+      "aupro": 0.015594630831618498,
+      "f1_method": "exact_sort"
+    },
+    "capsule": {
+      "n_normal": 23,
+      "n_anomaly": 109,
+      "r_pos": 0.011951794864513523,
+      "p_f1max": 0.029426500374968495,
+      "p_auroc": 0.5355720341997017,
+      "p_ap": 0.013825040719452085,
+      "i_auroc": 0.5414838452333466,
+      "aupro": 0.15513739876048915,
+      "f1_method": "exact_sort"
+    },
+    "carpet": {
+      "n_normal": 28,
+      "n_anomaly": 89,
+      "r_pos": 0.020450101809431256,
+      "p_f1max": 0.1298410079197108,
+      "p_auroc": 0.7596024884543634,
+      "p_ap": 0.06277595119737968,
+      "i_auroc": 0.4881621187800963,
+      "aupro": 0.17805026190269013,
+      "f1_method": "exact_sort"
+    },
+    "grid": {
+      "n_normal": 21,
+      "n_anomaly": 57,
+      "r_pos": 0.008332532385010518,
+      "p_f1max": 0.016824943148161724,
+      "p_auroc": 0.35041121844949985,
+      "p_ap": 0.011517007271201883,
+      "i_auroc": 0.5292397660818713,
+      "aupro": 0.006543849168955915,
+      "f1_method": "exact_sort"
+    },
+    "hazelnut": {
+      "n_normal": 40,
+      "n_anomaly": 70,
+      "r_pos": 0.027845405323539435,
+      "p_f1max": 0.08840961111049682,
+      "p_auroc": 0.48181931369921366,
+      "p_ap": 0.034286678375266284,
+      "i_auroc": 0.5157142857142857,
+      "aupro": 0.009755656986072165,
+      "f1_method": "exact_sort"
+    },
+    "leather": {
+      "n_normal": 32,
+      "n_anomaly": 92,
+      "r_pos": 0.008244790057234217,
+      "p_f1max": 0.03357416583270278,
+      "p_auroc": 0.39786313237416443,
+      "p_ap": 0.016279804203441824,
+      "i_auroc": 0.5146059782608696,
+      "aupro": 0.01054832431572205,
+      "f1_method": "exact_sort"
+    },
+    "metal_nut": {
+      "n_normal": 22,
+      "n_anomaly": 93,
+      "r_pos": 0.1523510923890408,
+      "p_f1max": 0.27120922436133943,
+      "p_auroc": 0.4833259154265277,
+      "p_ap": 0.138013262472896,
+      "i_auroc": 0.23607038123167157,
+      "aupro": 0.00044821109052407625,
+      "f1_method": "exact_sort"
+    },
+    "pill": {
+      "n_normal": 26,
+      "n_anomaly": 141,
+      "r_pos": 0.04384767013245479,
+      "p_f1max": 0.21983517088545237,
+      "p_auroc": 0.6688865755305907,
+      "p_ap": 0.14747346873870487,
+      "i_auroc": 0.5031369339879979,
+      "aupro": 0.09082280328790052,
+      "f1_method": "exact_sort"
+    },
+    "screw": {
+      "n_normal": 41,
+      "n_anomaly": 119,
+      "r_pos": 0.003208705357142857,
+      "p_f1max": 0.007012833271208483,
+      "p_auroc": 0.40516108844515314,
+      "p_ap": 0.002502707948682665,
+      "i_auroc": 0.40141422422627593,
+      "aupro": 0.010905044509996322,
+      "f1_method": "exact_sort"
+    },
+    "tile": {
+      "n_normal": 33,
+      "n_anomaly": 84,
+      "r_pos": 0.08280142577700887,
+      "p_f1max": 0.17935151752538697,
+      "p_auroc": 0.5633077557936079,
+      "p_ap": 0.12052470799600126,
+      "i_auroc": 0.556096681096681,
+      "aupro": 4.188955332204634e-05,
+      "f1_method": "exact_sort"
+    },
+    "toothbrush": {
+      "n_normal": 12,
+      "n_anomaly": 30,
+      "r_pos": 0.01938939752285754,
+      "p_f1max": 0.039903788510899645,
+      "p_auroc": 0.406179036308979,
+      "p_ap": 0.015786448859176447,
+      "i_auroc": 0.4652777777777777,
+      "aupro": 0.023268471181928402,
+      "f1_method": "exact_sort"
+    },
+    "transistor": {
+      "n_normal": 60,
+      "n_anomaly": 40,
+      "r_pos": 0.06209287796751354,
+      "p_f1max": 0.1169358473408087,
+      "p_auroc": 0.37748533925896044,
+      "p_ap": 0.04719656698519675,
+      "i_auroc": 0.52,
+      "aupro": 0.14390265627899892,
+      "f1_method": "exact_sort"
+    },
+    "wood": {
+      "n_normal": 19,
+      "n_anomaly": 60,
+      "r_pos": 0.04561308183826359,
+      "p_f1max": 0.10361680822849352,
+      "p_auroc": 0.5476156155716136,
+      "p_ap": 0.05133728817870384,
+      "i_auroc": 0.5991228070175438,
+      "aupro": 0.0265131563193376,
+      "f1_method": "exact_sort"
+    },
+    "zipper": {
+      "n_normal": 32,
+      "n_anomaly": 119,
+      "r_pos": 0.025828995437883223,
+      "p_f1max": 0.05324802529018596,
+      "p_auroc": 0.4846036954721296,
+      "p_ap": 0.024457507819010887,
+      "i_auroc": 0.5216649159663865,
+      "aupro": 0.03204133988991121,
+      "f1_method": "exact_sort"
+    }
+  },
+  "note": "base_pw = 不平衡修正后的公平对照: Dice+BCE(pos_weight=10), 与 hic 臂唯一差异是无 HIC 项; 论文主消融 base_pw vs hic."
+}

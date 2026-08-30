@@ -1,0 +1,223 @@
+{
+  "script_version": "c5ee133ca1fc",
+  "pipeline": "lineC_remote_frozendino_singlesource",
+  "deployment": "remote remote-host:/data/repo/halo_ad/lineC_sup",
+  "protocol_note": "单源 LODO: 训练池 = 源数据集全部 train 正常图 + 源数据集 test split 带像素 GT 的异常图 (与本地 RealIADAdapter 同约定); 评测 = 目标数据集完整官方 test split, 无泄漏. VisA 用原始版 split_csv/1cls.csv, split 定义以 csv 为准.",
+  "train_sets": [
+    "visa"
+  ],
+  "test_set": "mvtec",
+  "arm": "sghl",
+  "seed": 3,
+  "epochs": 15,
+  "wide": true,
+  "ckpt_epoch": 14,
+  "ckpt": "/data/repo/halo_ad/lineC_sup/checkpoints/visa_to_mvtec_sghl_wide_ep15_seed3/last.pth",
+  "n_categories": 15,
+  "subset": false,
+  "eval_protocol": "EVAL_PROTOCOL.md v1: F1max exact-sort (bins4096 if >1.5e8 px), AUPRO FPR<=0.3, bootstrap B=10000",
+  "macro": {
+    "p_f1max": {
+      "mean": 0.36111857778553297,
+      "ci95": [
+        0.29517442067956134,
+        0.42463353807349963
+      ]
+    },
+    "p_auroc": {
+      "mean": 0.7444457727714349,
+      "ci95": [
+        0.6767588152855546,
+        0.8035451446389955
+      ]
+    },
+    "p_ap": {
+      "mean": 0.31355256132371306,
+      "ci95": [
+        0.24371194460926093,
+        0.3824227668034996
+      ]
+    },
+    "i_auroc": {
+      "mean": 0.8541930610846453,
+      "ci95": [
+        0.7819897276811372,
+        0.9193380551277742
+      ]
+    },
+    "aupro": {
+      "mean": 0.15029288387488787,
+      "ci95": [
+        0.0776173928738977,
+        0.2395327444014341
+      ]
+    }
+  },
+  "per_category": {
+    "bottle": {
+      "n_normal": 20,
+      "n_anomaly": 63,
+      "r_pos": 0.07511859704540778,
+      "p_f1max": 0.5368437192181633,
+      "p_auroc": 0.7962143808583666,
+      "p_ap": 0.5345144937676042,
+      "i_auroc": 0.8492063492063493,
+      "aupro": 0.21301516234784365,
+      "f1_method": "exact_sort"
+    },
+    "cable": {
+      "n_normal": 58,
+      "n_anomaly": 92,
+      "r_pos": 0.037455704220463695,
+      "p_f1max": 0.17458935913295648,
+      "p_auroc": 0.5564951104325032,
+      "p_ap": 0.10511858840078725,
+      "i_auroc": 0.7946026986506747,
+      "aupro": 0.3563555008179799,
+      "f1_method": "exact_sort"
+    },
+    "capsule": {
+      "n_normal": 23,
+      "n_anomaly": 109,
+      "r_pos": 0.011951794864513523,
+      "p_f1max": 0.27702674379611003,
+      "p_auroc": 0.7348946955744581,
+      "p_ap": 0.2161633374035683,
+      "i_auroc": 0.9100518548065417,
+      "aupro": 0.08763160587691345,
+      "f1_method": "exact_sort"
+    },
+    "carpet": {
+      "n_normal": 28,
+      "n_anomaly": 89,
+      "r_pos": 0.020450101809431256,
+      "p_f1max": 0.4169734532211597,
+      "p_auroc": 0.6962923556009529,
+      "p_ap": 0.36578292476251817,
+      "i_auroc": 0.9646869983948635,
+      "aupro": 0.0030718043997293902,
+      "f1_method": "exact_sort"
+    },
+    "grid": {
+      "n_normal": 21,
+      "n_anomaly": 57,
+      "r_pos": 0.008332532385010518,
+      "p_f1max": 0.5263703806146338,
+      "p_auroc": 0.9111713298606472,
+      "p_ap": 0.4621185576982667,
+      "i_auroc": 1.0,
+      "aupro": 0.028641393852023092,
+      "f1_method": "exact_sort"
+    },
+    "hazelnut": {
+      "n_normal": 40,
+      "n_anomaly": 70,
+      "r_pos": 0.027845405323539435,
+      "p_f1max": 0.37607343189262243,
+      "p_auroc": 0.7931647148652397,
+      "p_ap": 0.3415312191538508,
+      "i_auroc": 0.9817857142857143,
+      "aupro": 0.16403869730119594,
+      "f1_method": "exact_sort"
+    },
+    "leather": {
+      "n_normal": 32,
+      "n_anomaly": 92,
+      "r_pos": 0.008244790057234217,
+      "p_f1max": 0.516437187358841,
+      "p_auroc": 0.8506847595789612,
+      "p_ap": 0.4315897917207858,
+      "i_auroc": 1.0,
+      "aupro": 0.0023120106071926774,
+      "f1_method": "exact_sort"
+    },
+    "metal_nut": {
+      "n_normal": 22,
+      "n_anomaly": 93,
+      "r_pos": 0.1523510923890408,
+      "p_f1max": 0.3550055964537399,
+      "p_auroc": 0.6942520635262301,
+      "p_ap": 0.2963145731441956,
+      "i_auroc": 0.6414956011730205,
+      "aupro": 0.5555735262613265,
+      "f1_method": "exact_sort"
+    },
+    "pill": {
+      "n_normal": 26,
+      "n_anomaly": 141,
+      "r_pos": 0.04384767013245479,
+      "p_f1max": 0.2556611595368889,
+      "p_auroc": 0.7277202231444335,
+      "p_ap": 0.21275653319748877,
+      "i_auroc": 0.5673758865248226,
+      "aupro": 0.14246234692482482,
+      "f1_method": "exact_sort"
+    },
+    "screw": {
+      "n_normal": 41,
+      "n_anomaly": 119,
+      "r_pos": 0.003208705357142857,
+      "p_f1max": 0.3495735313349123,
+      "p_auroc": 0.9178548606100158,
+      "p_ap": 0.2971757413873715,
+      "i_auroc": 0.8038532486165197,
+      "aupro": 0.07247991692890869,
+      "f1_method": "exact_sort"
+    },
+    "tile": {
+      "n_normal": 33,
+      "n_anomaly": 84,
+      "r_pos": 0.08280142577700887,
+      "p_f1max": 0.5133082693424906,
+      "p_auroc": 0.7986129428277714,
+      "p_ap": 0.523387282318553,
+      "i_auroc": 0.8165584415584415,
+      "aupro": 0.07716151034577948,
+      "f1_method": "exact_sort"
+    },
+    "toothbrush": {
+      "n_normal": 12,
+      "n_anomaly": 30,
+      "r_pos": 0.01938939752285754,
+      "p_f1max": 0.26062248906014307,
+      "p_auroc": 0.8602910024568622,
+      "p_ap": 0.18874420157529084,
+      "i_auroc": 0.8319444444444445,
+      "aupro": 0.1777276956798007,
+      "f1_method": "exact_sort"
+    },
+    "transistor": {
+      "n_normal": 60,
+      "n_anomaly": 40,
+      "r_pos": 0.06209287796751354,
+      "p_f1max": 0.11706592333792847,
+      "p_auroc": 0.426150855630324,
+      "p_ap": 0.08143710449290678,
+      "i_auroc": 0.6760416666666667,
+      "aupro": 0.3684690510721583,
+      "f1_method": "exact_sort"
+    },
+    "wood": {
+      "n_normal": 19,
+      "n_anomaly": 60,
+      "r_pos": 0.04561308183826359,
+      "p_f1max": 0.4341958210137649,
+      "p_auroc": 0.7223588075999068,
+      "p_ap": 0.39559624912532165,
+      "i_auroc": 0.9894736842105263,
+      "aupro": 0.00475980263579655,
+      "f1_method": "exact_sort"
+    },
+    "zipper": {
+      "n_normal": 32,
+      "n_anomaly": 119,
+      "r_pos": 0.025828995437883223,
+      "p_f1max": 0.30703160146864,
+      "p_auroc": 0.6805284890048524,
+      "p_ap": 0.2510578217071857,
+      "i_auroc": 0.9858193277310925,
+      "aupro": 0.0006932330718451001,
+      "f1_method": "exact_sort"
+    }
+  }
+}
