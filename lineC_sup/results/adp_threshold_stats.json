@@ -1,0 +1,30 @@
+{
+  "mvtec": {
+    "n": 1258,
+    "median": 2995.0,
+    "p5": 335.85,
+    "p95": 32916.949999999946,
+    "frac_below_th": 0.3561,
+    "frac_band_pm25": 0.1057,
+    "frac_band_pm12": 0.0517
+  },
+  "visa": {
+    "n": 1200,
+    "median": 388.5,
+    "p5": 30.950000000000003,
+    "p95": 5828.149999999986,
+    "frac_below_th": 0.8192,
+    "frac_band_pm25": 0.0467,
+    "frac_band_pm12": 0.02
+  },
+  "realiad": {
+    "n": 4000,
+    "median": 303.0,
+    "p5": 43.95000000000002,
+    "p95": 2436.0499999999997,
+    "frac_below_th": 0.9093,
+    "frac_band_pm25": 0.0628,
+    "frac_band_pm12": 0.0255,
+    "note": "random 4000 of full anomalous set"
+  }
+}

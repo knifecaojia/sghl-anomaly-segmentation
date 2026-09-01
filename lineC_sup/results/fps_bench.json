@@ -1,0 +1,32 @@
+{
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "input": "3x392x392 (train/eval resolution)",
+  "params_backbone_frozen_M": 86.58,
+  "params_head_trainable_M": 2.753,
+  "b1_fp16": {
+    "fps": 26.9,
+    "ms_per_img": 37.2,
+    "vram_peak_MB": 463.0
+  },
+  "b1_fp32": {
+    "fps": 36.7,
+    "ms_per_img": 27.24,
+    "vram_peak_MB": 490.0
+  },
+  "b8_fp16": {
+    "fps": 211.2,
+    "ms_per_img": 4.74,
+    "vram_peak_MB": 1172.0
+  },
+  "b8_fp32": {
+    "fps": 78.7,
+    "ms_per_img": 12.71,
+    "vram_peak_MB": 1450.0
+  },
+  "split_fp16_b1": {
+    "backbone_ms": 28.65,
+    "full_ms": 38.09,
+    "head_ms": 9.44
+  },
+  "vram_reserved_MB": 1694.0
+}
