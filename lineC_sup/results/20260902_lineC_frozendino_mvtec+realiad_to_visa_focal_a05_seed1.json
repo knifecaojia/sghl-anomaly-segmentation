@@ -1,0 +1,189 @@
+{
+  "script_version": "6e707c51c019",
+  "pipeline": "lineC_frozendino",
+  "train_sets": [
+    "mvtec",
+    "realiad"
+  ],
+  "test_set": "visa",
+  "arm": "focal_a05",
+  "seed": 1,
+  "epochs": 5,
+  "ckpt_epoch": 4,
+  "ckpt": "D:\\tianchi-rongqi\\paper\\halo_ad\\lineC_sup\\checkpoints\\mvtec+realiad_to_visa_focal_a05_seed1\\last.pth",
+  "n_categories": 12,
+  "subset": false,
+  "eval_protocol": "EVAL_PROTOCOL.md v1: F1max exact-sort (bins4096 if >1.5e8 px), AUPRO FPR<=0.3, bootstrap B=10000",
+  "macro": {
+    "p_f1max": {
+      "mean": 0.06132541045471962,
+      "ci95": [
+        0.02765294489689096,
+        0.1058097571752219
+      ]
+    },
+    "p_auroc": {
+      "mean": 0.6516645183620734,
+      "ci95": [
+        0.602863210450082,
+        0.7051606727512745
+      ]
+    },
+    "p_ap": {
+      "mean": 0.015647467182449016,
+      "ci95": [
+        0.005877026390347983,
+        0.027397187735337152
+      ]
+    },
+    "i_auroc": {
+      "mean": 0.5,
+      "ci95": [
+        0.5,
+        0.5
+      ]
+    },
+    "aupro": {
+      "mean": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "per_category": {
+    "candle": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.001758609693877551,
+      "p_f1max": 0.007673480883179594,
+      "p_auroc": 0.5414612548040716,
+      "p_ap": 0.0019173308952884854,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "capsules": {
+      "n_normal": 60,
+      "n_anomaly": 100,
+      "r_pos": 0.00433636863546439,
+      "p_f1max": 0.017858377977108677,
+      "p_auroc": 0.5616892552372488,
+      "p_ap": 0.00494527057509128,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "cashew": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.014700298486741635,
+      "p_f1max": 0.11809182022437446,
+      "p_auroc": 0.8299850485336906,
+      "p_ap": 0.04203368512576537,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "chewinggum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.007381863459669582,
+      "p_f1max": 0.0524045299178441,
+      "p_auroc": 0.6860169497038804,
+      "p_ap": 0.011704024221419647,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "fryum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.03010108635290851,
+      "p_f1max": 0.26606513488333383,
+      "p_auroc": 0.7730281132896248,
+      "p_ap": 0.06399355579439392,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "macaroni1": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.0004721665451895044,
+      "p_f1max": 0.004615429458031767,
+      "p_auroc": 0.585910465260614,
+      "p_ap": 0.0005700703070997933,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "macaroni2": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.00038031028738025823,
+      "p_f1max": 0.00633546034639927,
+      "p_auroc": 0.6080644313916762,
+      "p_ap": 0.00048511852842731074,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "pcb1": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.006082817055393586,
+      "p_f1max": 0.044679651192736466,
+      "p_auroc": 0.5932542801711447,
+      "p_ap": 0.007467006362425295,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "pcb2": {
+      "n_normal": 100,
+      "n_anomaly": 100,
+      "r_pos": 0.0026974437734277384,
+      "p_f1max": 0.016774325213620173,
+      "p_auroc": 0.5590739284630619,
+      "p_ap": 0.003057734001485712,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "pcb3": {
+      "n_normal": 101,
+      "n_anomaly": 100,
+      "r_pos": 0.0032970753790398277,
+      "p_f1max": 0.04187196019338191,
+      "p_auroc": 0.6456224955642635,
+      "p_ap": 0.004645631197510834,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "pcb4": {
+      "n_normal": 101,
+      "n_anomaly": 100,
+      "r_pos": 0.008591854347587344,
+      "p_f1max": 0.0613981200656555,
+      "p_auroc": 0.6721166074316908,
+      "p_ap": 0.013043177295585942,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    },
+    "pipe_fryum": {
+      "n_normal": 50,
+      "n_anomaly": 100,
+      "r_pos": 0.016312734277384423,
+      "p_f1max": 0.09813663510096973,
+      "p_auroc": 0.7637513904939128,
+      "p_ap": 0.033907001884894636,
+      "i_auroc": 0.5,
+      "aupro": 0.0,
+      "f1_method": "exact_sort"
+    }
+  },
+  "note": "REVIEW_V2 M1 alpha-scan variant of focal: alpha=0.5 (正类相对强调 alpha/(1-alpha); 其余与 focal 完全一致, gamma=2)."
+}
