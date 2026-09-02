@@ -185,7 +185,8 @@ def main():
     ap.add_argument('--test_set', required=True)
     ap.add_argument('--arm', required=True,
                     choices=['base', 'sghl', 'hic', 'base_pw', 'hic_adp', 'focal',
-                    'hic_m01', 'hic_m05', 'hic_r3', 'hic_r8'])
+                    'hic_m01', 'hic_m05', 'hic_r3', 'hic_r8',
+                    'focal_a025', 'focal_a05'])
     ap.add_argument('--seed', type=int, default=1)
     ap.add_argument('--ckpt', default=None)
     ap.add_argument('--bs', type=int, default=32)
@@ -293,8 +294,11 @@ def main():
                           '论文主消融为 base_pw vs hic, sghl (常数 HS=1.0) 为反面对照.')
     elif args.arm == 'focal':
         result['note'] = ('focal = Dice + Binary Focal(gamma=2, alpha=0.75), 无 BCE/HIC/HS '
-                          '(REVIEW_V1 A2 对照: 幅度类重加权的第三种代表, 检验其能否对抗塌缩; '
-                          'alpha=0.75 给正类 3x 权重使 focal 拥有不低于 base_pw 的正向强调).')
+                          '(REVIEW_V1 A2 对照: 幅度类重加权的第三种代表, 检验其能否对抗塌缩).')
+    elif args.arm in ('focal_a025', 'focal_a05'):
+        _a = dict(focal_a025='0.25', focal_a05='0.5')[args.arm]
+        result['note'] = (f'REVIEW_V2 M1 alpha-scan variant of focal: alpha={_a} '
+                          '(正类相对强调 alpha/(1-alpha); 其余与 focal 完全一致, gamma=2).')
     elif args.arm in ('hic_m01', 'hic_m05', 'hic_r3', 'hic_r8'):
         _v = dict(hic_m01='margin=0.1', hic_m05='margin=0.5',
                   hic_r3='halo_radius=3', hic_r8='halo_radius=8')

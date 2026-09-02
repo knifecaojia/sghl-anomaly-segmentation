@@ -31,6 +31,11 @@ POS_WEIGHT = 10.0
 FOCAL_GAMMA = 2.0
 FOCAL_ALPHA = 0.75
 
+# R2 M1 (REVIEW_V2 2026-09-02): alpha 扫描变体. focal 正类相对强调 =
+# alpha/(1-alpha): 0.25 -> 1/3x, 0.5 -> 1x, 0.75 -> 3x. 补 0.25/0.5 单种子,
+# 验证 VisA 塌缩不是 alpha 选档的人为结果.
+FOCAL_VARIANTS = {'focal_a025': dict(alpha=0.25), 'focal_a05': dict(alpha=0.5)}
+
 
 def focal_loss(logits, gt, gamma=FOCAL_GAMMA, alpha=FOCAL_ALPHA):
     """Binary focal loss: -alpha_t * (1-p_t)^gamma * log(p_t).
@@ -188,11 +193,12 @@ def compute_losses(logits, gt, arm='base', lambda_hs=1.0, lambda_hic=1.0):
     if arm == 'base_pw':
         bl = F.binary_cross_entropy_with_logits(
             logits, gt, pos_weight=logits.new_tensor(POS_WEIGHT))
-    elif arm == 'focal':
+    elif arm == 'focal' or arm in FOCAL_VARIANTS:
         # focal: Dice + Focal(γ=2, α=0.75), 无 BCE/HIC/HS —— 幅度类修正的
         # 第三种代表 (base=无修正, base_pw=线性重加权, focal=非线性聚焦重加权).
         # bce 字段复用为 focal 值, train.py 日志列无需改动.
-        bl = focal_loss(logits, gt)
+        # R2 M1: focal_a025/focal_a05 变体仅改 alpha.
+        bl = focal_loss(logits, gt, **FOCAL_VARIANTS.get(arm, {}))
     else:
         bl = bce_loss(logits, gt)
     out = dict(dice=dl, bce=bl)

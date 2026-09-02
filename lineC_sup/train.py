@@ -53,7 +53,8 @@ def main():
     ap.add_argument('--test_set', required=True, choices=['mvtec', 'visa', 'realiad'])
     ap.add_argument('--arm', required=True,
                     choices=['base', 'sghl', 'hic', 'base_pw', 'hic_adp', 'focal',
-                    'hic_m01', 'hic_m05', 'hic_r3', 'hic_r8'])
+                    'hic_m01', 'hic_m05', 'hic_r3', 'hic_r8',
+                    'focal_a025', 'focal_a05'])
     ap.add_argument('--epochs', type=int, default=5)
     ap.add_argument('--bs', type=int, default=12)
     ap.add_argument('--lr', type=float, default=1e-4)
